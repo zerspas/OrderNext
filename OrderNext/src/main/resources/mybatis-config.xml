@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration  
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- MyBatis的配置文件中除了settings的配置在此配，其它的都可以放到
+       Spring的配置文件中去配置。
+     -->
+    
+</configuration>
