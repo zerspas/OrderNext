@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<!-- 包含公共的JSP代码片段 -->
+<title>添加管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/style/js/jquery.js"></script>
+<script type="text/javascript" src="/style/js/page_common.js"></script>
+<link href="/style/css/common_style_blue.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/style/css/index_1.css" />
+	<!-- 页面标题 -->
+	<div id="TitleArea">
+		<div id="TitleArea_Head"></div>
+		<div id="TitleArea_Title">
+			<div id="TitleArea_Title_Content">
+				<img border="0" width="13" height="13"
+					src="style/images/title_arrow.gif" /> 添加管理
+			</div>
+		</div>
+		<div id="TitleArea_End"></div>
+	</div>
+	
+	<form action="/login/admin" method="post" id="info">
+		<table>
+			<tr>
+				<td>用户名：</td>
+				<td><input type="text" id="name" name="name"></td>
+			</tr>
+			<tr>
+				<td>密	码：</td>
+				<td><input type="text" id="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>角	色：</td>
+				<td>
+					<select name="roleId">
+						<option value="1">老板</option>
+						<option value="2">厨师长</option>
+						<option value="3">服务员</option>
+						<option value="4">经理</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="提交">
+	</form>
+	
+	
+	<script type="text/javascript" th:src="@{/js/jquery-1.12.4.js}"></script>
+	<script type="text/javascript">
+		$("#info").submit(function() {
+			var name=$("#name").val();
+			var password=$("#password").val();
+			if(name==""){
+				alert("信息必须填写完整");
+				return false;
+			}else if(reason==""){
+				alert("信息必须填写完整");
+				return false;
+			}else{
+				return true;
+			}
+		})
+	</script>
+</body>
+</html>

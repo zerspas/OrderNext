@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+	<!-- 包含公共的JSP代码片段 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/style/js/jquery.js"></script>
+<script type="text/javascript" src="/style/js/page_common.js"></script>
+<link href="/style/css/common_style_blue.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/style/css/index_1.css" />
+	<script type="text/javascript">
+		setInterval(function(){
+			window.location.href = "/wirelessplatform/client.html?method=list";
+		},1000 * 50);
+	</script>
+</head>
+<body>
+	<!-- 页面标题 -->
+	<div id="TitleArea">
+		<div id="TitleArea_Head"></div>
+		<div id="TitleArea_Title">
+			<div id="TitleArea_Title_Content">
+				<img border="0" width="13" height="13"
+					src="style/images/title_arrow.gif" /> 员工列表
+			</div>
+		</div>
+		<div id="TitleArea_End"></div>
+	</div>
+
+	<!-- 主内容区域（数据列表或表单显示） -->
+	<div id="MainArea">
+		<table class="MainArea_Content" align="center" cellspacing="0" cellpadding="0">
+			<!-- 表头-->
+			<thead>
+				<tr align="center" valign="middle" id="TableTitle">
+					<td>角色</td>
+					<td>账号</td>
+					<td>密码</td>
+				</tr>
+			</thead>
+			<!--显示数据列表 -->
+			<tbody id="TableData">
+			 		<tr height="60" th:each="l:${list}">
+			 			<td th:text="${l.role.TypeName}"></td>
+				 		<td th:text="${l.name}"></td>
+				 		<td th:text="${l.password}"></td>
+			 		</tr>
+			</tbody>
+		</table>
+		<!-- 其他功能超链接 -->
+		<div id="TableTail" align="center">
+			<div class="FunctionButton"><a th:href="@{/login/admin}">添加</a></div>
+	    </div> 
+	</div>
+</body>
+</html>
