@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射文件与持久化接口通过namespace属性进行关联，-->
+<mapper namespace="com.ordersys.dao.BoardDao">
+   
+    <select id="findList" resultType="Board">
+    	select * from dinnertable
+    </select>
+      <select id="findById" resultType="Board">
+    	select * from dinnertable where id=#{id}
+    </select>
+    <insert id="add" parameterType="Board" >
+    	insert into dinnertable values(null,#{tableName},default,default)
+    </insert>
+    <delete id="delete" parameterType="int">  
+    	delete from dinnertable where id=#{id}
+    </delete>
+    <update id="update" parameterType="Board">
+    	update dinnertable 
+    	<set>
+       	 <if test="tableStatus=='满桌'">
+           tableStatus='空闲',
+         </if>
+         <if test="tableStatus=='空闲'">
+           tableStatus='满桌',
+         </if>
+        </set>
+    	  where id = #{id}
+    </update>
+</mapper> 
